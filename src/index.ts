@@ -13,8 +13,6 @@ const app = new Elysia()
           description: "Backend API documentation for Wayl API",
         },
       },
-      path: "/docs",
-      specPath: "/docs/json",
     })
   )
   .use(routes)
