@@ -7,24 +7,28 @@ datasource db {
   provider = "postgresql"
 }
 
-
 model User {
-  id        String   @id @default(cuid())
-  clerkId   String   @unique
-  email     String   @unique
-  
-  plan      Plan     @default(FREE)
-  
-  waylCustomerId String? 
-  
+  id       String   @id @default(cuid())
+  email    String   @unique
+  password String
+  role     UserRole @default(USER)
+  name     String
+
+  plan           Plan    @default(FREE)
+  waylCustomerId String?
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
-
 
 enum Plan {
   FREE
   BASIC
   PRO
   ENTERPRISE
+}
+
+enum UserRole {
+  ADMIN
+  USER
 }
