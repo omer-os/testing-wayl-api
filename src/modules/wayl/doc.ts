@@ -1,0 +1,2 @@
+import { DocumentDecoration } from "elysia";
+
